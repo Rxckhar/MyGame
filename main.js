@@ -1,11 +1,6 @@
-let map = {
-    x: 0,
-    y: 0,
-    width: window.innerWidth,
-    height: window.innerHeight,
-    color: '#f5f5f5',
-    border: '#f1f1f1'
-}
+let game = new Game(map);
+
+game.initMap();
 
 let cube = {
     id: 'cube',
@@ -18,40 +13,12 @@ let cube = {
     color: 'black'
 }
 
-let bots = [];
+game.pushBot();
+game.pushBuff();
 
-let bot = {
-    id: 1,
-    x: 0,
-    y: 0,
-    width: 56,
-    height: 56,
-    trnstn: .25,
-    step: 56,
-    color: 'blue'
-}
-
-bots.push(bot);
-
-let buffs = [];
-
-let buff = {
-    id: 1,
-    x: 200,
-    y: 200,
-    width: 56,
-    height: 56,
-    trnstn: .25,
-    color: 'green'
-}
-
-buffs.push(buff);
+renderMap(game.getMap());
+renderCube(spawnCube(game.getMap(), cube));
 
 
 
-renderMap(map);
-renderCube(spawnCube(map, cube));
-renderBots(bots);
-renderBuffs(buffs);
-
-let tick = setInterval(timeTick, 1000);
+let tick = setInterval(timeTick(game), 1000);

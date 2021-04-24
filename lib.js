@@ -139,6 +139,20 @@ function renderBuff(buff) {
     document.getElementById('buff_' + buff.id).style.backgroundColor = buff.color;
 }
 
-function timeTick() {
+function timeTick(game) {
     console.log(new Date().getSeconds());
+
+    // buffsLogic(game);
+    // botsLogic(game);
+    console.log(game);
+}
+
+function buffsLogic(game) {
+    console.log(game.plusCounter());
+    renderBots(game.getBots());
+}
+
+function botsLogic(game) {
+    console.log(game.plusCounter());
+    renderBuffs(game.getBuffs());
 }
