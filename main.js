@@ -1,24 +1,61 @@
-let game = new Game(map);
-
-game.initMap();
-
-let cube = {
-    id: 'cube',
+let map = {
     x: 0,
     y: 0,
-    width: 56,
-    height: 56,
-    trnstn: .25,
-    step: 56,
-    color: 'black'
+    // width: window.innerWidth,
+    // height: window.innerHeight,
+    width: 720,
+    height: 560,
+    color: '#f5f5f5'
 }
 
-game.pushBot();
-game.pushBuff();
+let cube = {
+    x: 0,
+    y: 0,
+    id: 'cube',
+    width: 56,
+    height: 56,
+    trn: .25,
+    step: 56,
+    color: 'black',
+    oldX: 0,
+    oldY: 0
+}
 
-renderMap(game.getMap());
-renderCube(spawnCube(game.getMap(), cube));
+let bots = [];
+
+let bot = {
+    x: 0,
+    y: 0,
+    id: 1,
+    width: 56,
+    height: 56,
+    trn: .25,
+    step: 56,
+    color: 'red'
+}
+
+// bots.push(spawnCube(map, bot));
+
+let buffs = [];
+
+let buff = {
+    x: 0,
+    y: 0,
+    id: 1,
+    width: 56,
+    height: 56,
+    trn: .25,
+    step: 56,
+    color: 'yellow'
+}
 
 
+// buffs.push(spawnCube(map, buff));
 
-let tick = setInterval(timeTick(game), 1000);
+renderMap(map);
+renderCube(spawnCube(map, cube));
+
+// renderBots(bots);
+// renderBuffs(buffs);
+
+let tike = setInterval(timeTike, 3000);
